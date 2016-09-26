@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Wrapper/Scenes/Wrapper.unity
+  isLoaded: 1
+  isActive: 1
