@@ -107,11 +107,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Community Assets\GoKit Tween\GoKit\Editor\GoDummyPathEditor.cs" />
     <Compile Include="Assets\Community Assets\RMCLibrary\Scripts\Editor\com\rmc\CreateDefaultFoldersMenu.cs" />
     <Compile Include="Assets\Community Assets\RMCLibrary\Scripts\Editor\com\rmc\EditorWindowUtility.cs" />
     <Compile Include="Assets\Community Assets\RMCLibrary\Scripts\Editor\com\rmc\ScriptableObjectUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Community Assets\GoKit Tween\GoKit\easing\easeEquationsLicense.txt" />
     <None Include="Assets\Community Assets\StrangeIoC\LICENSE-2.0.txt" />
     <None Include="Assets\Community Assets\StrangeIoC\README.txt" />
     <None Include="Assets\Community Assets\StrangeIoC\scripts\strange\extensions\ReadMe.txt" />

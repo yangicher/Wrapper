@@ -3,6 +3,9 @@ using strange.extensions.command.impl;
 using strange.extensions.context.api;
 using strange.extensions.context.impl;
 using Assets.Wrapper.Scripts.Controller;
+using Assets.Wrapper.Scripts.Views;
+using com.rmc.projects.paddle_soccer.mvcs.controller.commands;
+using com.rmc.projects.paddle_soccer.mvcs.controller.signals;
 using UnityEngine;
 
 namespace Assets.Wrapper.Scripts
@@ -24,7 +27,7 @@ namespace Assets.Wrapper.Scripts
         override public IContext Start()
         {
             base.Start();
-            CommonSignal.StartSignal startSignal = (CommonSignal.StartSignal)injectionBinder.GetInstance<CommonSignal.StartSignal>();
+            StartSignal startSignal = (StartSignal)injectionBinder.GetInstance<StartSignal>();
             startSignal.Dispatch();
             return this;
         }
@@ -38,31 +41,19 @@ namespace Assets.Wrapper.Scripts
             **/
             //injectionBinder.Bind<IGameModel>().To<GameModel>().ToSingleton();
 
-
-
             /**
              * VIEW
              * 
              * 
             **/
-            //
-            //            mediationBinder.Bind<IntroUI>().To<IntroUIMediator>();
-            //            //
-            //            mediationBinder.Bind<PlayerPaddleUI>().To<PlayerPaddleUIMediator>();
-            //            mediationBinder.Bind<CPUPaddleUI>().To<CPUPaddleUIMediator>();
-            //            mediationBinder.Bind<SoccerBallUI>().To<SoccerBallUIMediator>();
-            //            //
+            mediationBinder.Bind<GameView>().To<GameViewMediator>();
+            mediationBinder.Bind<HudView>().To<HudMediator>();
+
             //            mediationBinder.Bind<VirtualControllerUI>().To<VirtualControllerUIMediator>();
             //            mediationBinder.Bind<KeyboardControllerUI>().To<KeyboardControllerUIMediator>();
-            //            //
             //            mediationBinder.Bind<GameManagerUI>().To<GameManagerUIMediator>();
-            //            //
-            //            mediationBinder.Bind<HUDUI>().To<HUDUIMediator>();
             //            mediationBinder.Bind<SoundManagerUI>().To<SoundManagerUIMediator>();
             //
-            //DEBUGGING
-
-
 
             /**
              * CONTROLLER
@@ -70,24 +61,16 @@ namespace Assets.Wrapper.Scripts
              * 
             **/
             //	1. (MAPPED COMMANDS) 
-            //            commandBinder.Bind<StartSignal>().To<StartCommand>(); //TODO add once()
-            //            commandBinder.Bind<AllViewsInitializedSignal>().To<AllViewsInitializedCommand>();//TODO add once()
-
+            commandBinder.Bind<StartSignal>().To<StartCommand>().Once();
 
             //	2. (INJECTED SIGNALS - DIRECTLY OBSERVED)
-            //            injectionBinder.Bind<SoundPlaySignal>().ToSingleton();
-            //            //
-            //            injectionBinder.Bind<PlayerDoMoveSignal>().ToSingleton();
-            //
-            //            //
-            //            injectionBinder.Bind<PromptStartSignal>().ToSingleton();
-            //            injectionBinder.Bind<PromptEndedSignal>().ToSingleton();
-            //            //
+            injectionBinder.Bind<CommonSignal.StartGameSignal>().ToSingleton();
+            injectionBinder.Bind<CommonSignal.StopGameSignal>().ToSingleton();
+            injectionBinder.Bind<CommonSignal.ChangeScoreSignal>().ToSingleton();
             //            commandBinder.Bind<GameResetSignal>().To<GameResetCommand>();
 
 
             //	3. (PAIRS OF MAPPED/INJECTED SIGNALS)
-            //
             //            commandBinder.Bind<RightPaddleScoreChangeSignal>().To<RightPaddleScoreChangeCommand>();
             //            injectionBinder.Bind<RightPaddleScoreChangedSignal>().ToSingleton();
 

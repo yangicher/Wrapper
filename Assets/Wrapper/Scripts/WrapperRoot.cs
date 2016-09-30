@@ -1,5 +1,4 @@
 ﻿using strange.extensions.context.impl;
-using UnityEngine;
 
 namespace Assets.Wrapper.Scripts
 {
