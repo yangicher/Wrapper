@@ -1,11 +1,10 @@
 ﻿using strange.extensions.command.api;
 using strange.extensions.command.impl;
-using strange.extensions.context.api;
 using strange.extensions.context.impl;
 using Assets.Wrapper.Scripts.Controller;
+using Assets.Wrapper.Scripts.Controller.Commands;
+using Assets.Wrapper.Scripts.Model;
 using Assets.Wrapper.Scripts.Views;
-using com.rmc.projects.paddle_soccer.mvcs.controller.commands;
-using com.rmc.projects.paddle_soccer.mvcs.controller.signals;
 using UnityEngine;
 
 namespace Assets.Wrapper.Scripts
@@ -24,28 +23,23 @@ namespace Assets.Wrapper.Scripts
             injectionBinder.Bind<ICommandBinder>().To<SignalCommandBinder>().ToSingleton();
         }
 
-        override public IContext Start()
+        public override void Launch()
         {
-            base.Start();
-            StartSignal startSignal = (StartSignal)injectionBinder.GetInstance<StartSignal>();
+            base.Launch();
+
+            CommonSignal.StartSignal startSignal = (CommonSignal.StartSignal)injectionBinder.GetInstance<CommonSignal.StartSignal>();
             startSignal.Dispatch();
-            return this;
         }
 
         protected override void mapBindings()
         {
-            /**
-             * MODEL
-             * 
-             * 
-            **/
-            //injectionBinder.Bind<IGameModel>().To<GameModel>().ToSingleton();
+            base.mapBindings();
 
-            /**
-             * VIEW
-             * 
-             * 
-            **/
+            // MODEL
+            injectionBinder.Bind<IGameModel>().To<GameModel>().ToSingleton();
+
+            // VIEW
+            mediationBinder.Bind<MenuView>().To<MenuViewMediator>();
             mediationBinder.Bind<GameView>().To<GameViewMediator>();
             mediationBinder.Bind<HudView>().To<HudMediator>();
 
@@ -57,11 +51,9 @@ namespace Assets.Wrapper.Scripts
 
             /**
              * CONTROLLER
-             * 
-             * 
             **/
             //	1. (MAPPED COMMANDS) 
-            commandBinder.Bind<StartSignal>().To<StartCommand>().Once();
+            commandBinder.Bind<CommonSignal.StartSignal>().To<StartCommand>().Once();
 
             //	2. (INJECTED SIGNALS - DIRECTLY OBSERVED)
             injectionBinder.Bind<CommonSignal.StartGameSignal>().ToSingleton();
@@ -74,15 +66,11 @@ namespace Assets.Wrapper.Scripts
             //            commandBinder.Bind<RightPaddleScoreChangeSignal>().To<RightPaddleScoreChangeCommand>();
             //            injectionBinder.Bind<RightPaddleScoreChangedSignal>().ToSingleton();
 
-            /**
-             * SERVICE
-             * 
-             * 
-            **/
+            commandBinder.Bind<CommonSignal.GameStateChangeSignal>().To<GameStateChangeCommand>();
+            injectionBinder.Bind<CommonSignal.GameStateChangedSignal>().ToSingleton();
 
+            // SERVICE
             //(None. This project doesn't load/send any files/data)
-
-
         }
     }
 }

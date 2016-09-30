@@ -29,7 +29,13 @@ namespace Assets.Wrapper.Scripts.Views
         private float _rotationSpeed = 3f;
         private float _scaleSpeed = 1.5f;
 
-        public void StartGame(int sidesCount, float startScale, bool rotate)
+        private float _scaleFromFloor = 0.2f;
+        private float _scaleFromCeil = 0.8f;
+
+        private float _scaleToFloor = 1.1f;
+        private float _scaleToCeil = 1.4f;
+
+        public void StartGame(int sidesCount, bool rotate)
         {
             _checkImage.SetActive(false);
             _crossImage.SetActive(false);
@@ -37,18 +43,17 @@ namespace Assets.Wrapper.Scripts.Views
             _mainPolygon.DrawPolygon(sidesCount);
             _subPolygon.DrawPolygon(sidesCount);
 
-            _canvas.gameObject.SetActive(false);
-            _canvas.gameObject.SetActive(true);
-
             _mainPolygonTransform.localScale = Vector3.one;
-            _subPolygonTransform.localScale = new Vector3(startScale, startScale, 1f);
+            _subPolygonTransform.localScale = ScaleToVector;
 
-            var scaleProp = new ScaleTweenProperty(new Vector3(1.1f, 1.1f, 1.1f), true);
+            var scaleProp = new ScaleTweenProperty(ScaleFromVector);
 
             var scaleConfig = new GoTweenConfig();
+            scaleConfig.easeType = (Random.Range(0f, 1f) > 0.5f) ? GoEaseType.SineInOut : GoEaseType.BackInOut;
             scaleConfig.addTweenProperty(scaleProp);
             scaleConfig.loopType = GoLoopType.PingPong;
             scaleConfig.setIterations(-1);
+
             Go.addTween(new GoTween(_subPolygonTransform, _scaleSpeed, scaleConfig));
 
             if (rotate)
@@ -63,6 +68,27 @@ namespace Assets.Wrapper.Scripts.Views
                 Go.addTween(new GoTween(_mainPolygonTransform, _rotationSpeed, rotateConfig));
                 Go.addTween(new GoTween(_subPolygonTransform, _rotationSpeed, rotateConfig));
             }
+
+            _canvas.gameObject.SetActive(false);
+            _canvas.gameObject.SetActive(true);
+        }
+
+        private Vector3 ScaleToVector
+        {
+            get
+            {
+                var koef = Random.Range(_scaleFromFloor, _scaleFromCeil);
+                return new Vector3(koef, koef, koef);
+            }
+        }
+
+        private Vector3 ScaleFromVector
+        {
+            get
+            {
+                var koef = Random.Range(_scaleToFloor, _scaleToCeil);
+                return new Vector3(koef, koef, koef);
+            }
         }
 
         public void StopGame()
@@ -73,8 +99,8 @@ namespace Assets.Wrapper.Scripts.Views
 
         public bool IsWin()
         {
-            var difference = _subPolygonTransform.localScale.x - _mainPolygonTransform.localScale.x;
-            return Mathf.Abs(difference) <= _difficult;
+            var difference = _mainPolygonTransform.localScale.x - _subPolygonTransform.localScale.x;
+            return difference > 0 && difference <= _difficult;
         }
 
         public void ShowResult(bool won)
@@ -83,9 +109,9 @@ namespace Assets.Wrapper.Scripts.Views
             _crossImage.SetActive(!won);
         }
 
-        protected override void Start()
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
 
             _mainPolygonTransform = _mainPolygon.gameObject.transform;
             _subPolygonTransform = _subPolygon.gameObject.transform;

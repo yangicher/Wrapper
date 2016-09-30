@@ -23,18 +23,15 @@ namespace Assets.Wrapper.Scripts.Views
 
         public override void OnRegister()
         {
-            StartGameSignal.AddListener(OnGameStartHandler);
-        }
+            //StartGameSignal.AddListener(OnGameStartHandler);
 
-        private void OnGameStartHandler()
-        {
             _gameStarted = true;
-            View.StartGame(3, 0.7f, false);
+            View.StartGame(3, true);
         }
 
         public override void OnRemove()
         {
-            StartGameSignal.RemoveListener(OnGameStartHandler);
+            //StartGameSignal.RemoveListener(OnGameStartHandler);
         }
 
         public void Update()
@@ -86,7 +83,7 @@ namespace Assets.Wrapper.Scripts.Views
         {
             yield return new WaitForSeconds(0.5f);
 
-            View.StartGame(Random.Range(3, 8), Random.Range(0.6f, 0.8f), true);
+            View.StartGame(Random.Range(3, 8), true);
         }
     }
 }

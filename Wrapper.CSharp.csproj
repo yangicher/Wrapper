@@ -335,12 +335,19 @@
     <Compile Include="Assets\PaddleSoccer\Scripts\Runtime\com\rmc\projects\paddle_soccer\mvcs\view\ui\super\SuperControllerUI.cs" />
     <Compile Include="Assets\PaddleSoccer\Scripts\Runtime\com\rmc\projects\paddle_soccer\mvcs\view\ui\super\SuperPaddleUI.cs" />
     <Compile Include="Assets\Wrapper\Scripts\Components\UIPolygon.cs" />
+    <Compile Include="Assets\Wrapper\Scripts\Controller\Commands\GameStateChangeCommand.cs" />
+    <Compile Include="Assets\Wrapper\Scripts\Controller\Commands\StartCommand.cs" />
     <Compile Include="Assets\Wrapper\Scripts\Controller\CommonSignal.cs" />
+    <Compile Include="Assets\Wrapper\Scripts\Model\GameModel.cs" />
+    <Compile Include="Assets\Wrapper\Scripts\Model\GameState.cs" />
+    <Compile Include="Assets\Wrapper\Scripts\Model\IGameModel.cs" />
     <Compile Include="Assets\Wrapper\Scripts\Test.cs" />
     <Compile Include="Assets\Wrapper\Scripts\Views\GameView.cs" />
     <Compile Include="Assets\Wrapper\Scripts\Views\GameViewMediator.cs" />
     <Compile Include="Assets\Wrapper\Scripts\Views\HudMediator.cs" />
     <Compile Include="Assets\Wrapper\Scripts\Views\HudView.cs" />
+    <Compile Include="Assets\Wrapper\Scripts\Views\MenuView.cs" />
+    <Compile Include="Assets\Wrapper\Scripts\Views\MenuViewMediator.cs" />
     <Compile Include="Assets\Wrapper\Scripts\WrapperContext.cs" />
     <Compile Include="Assets\Wrapper\Scripts\WrapperRoot.cs" />
   </ItemGroup>

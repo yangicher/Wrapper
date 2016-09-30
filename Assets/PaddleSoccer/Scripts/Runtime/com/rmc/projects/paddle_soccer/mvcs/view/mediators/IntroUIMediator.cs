@@ -37,7 +37,6 @@ using com.rmc.projects.paddle_soccer.mvcs.model.vo;
 using com.rmc.projects.animation_monitor;
 
 
-
 //--------------------------------------
 //  Namespace
 //--------------------------------------

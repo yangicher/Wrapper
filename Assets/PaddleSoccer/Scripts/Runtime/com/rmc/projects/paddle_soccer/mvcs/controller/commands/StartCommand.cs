@@ -28,6 +28,8 @@
 //--------------------------------------
 //  Imports
 //--------------------------------------
+
+using Assets.Wrapper.Scripts.Views;
 using UnityEngine;
 using strange.extensions.command.impl;
 using strange.extensions.context.api;
@@ -75,22 +77,38 @@ namespace com.rmc.projects.paddle_soccer.mvcs.controller.commands
 		///<summary>
 		///	 Execute
 		///</summary>
-		public override void Execute()
-		{
-			//1. NOTE: ANY GO'S WE ADDED MANUALLY ADD TO HIERARCHY ALREADY ARE 
-			//			BINDED TO MEDIATORS BY CONTEXT AUTOMATICALLY
+//		public override void Execute()
+//		{
+//			//1. NOTE: ANY GO'S WE ADDED MANUALLY ADD TO HIERARCHY ALREADY ARE 
+//			//			BINDED TO MEDIATORS BY CONTEXT AUTOMATICALLY
+//
+//
+//			//2. NOW, PROGRAMMATICALLY ADD ANY GO'S WE DIDN'T MANUALLY ADD TO HIERARCHY ALREADY
+//			//			WHICH WILL BE BOUND TO MEDIATORS BY CONTEXT TOO
+//			//GameObject input_gameobject = new GameObject ("InputUIGO");
+//			//input_gameobject.transform.parent = contextView.transform;
+//			//input_gameobject.AddComponent<UserInputUI>();
+//
+//			Debug.Log ("StartCommand.execute()");
+//
+//
+//		}
+//
+//        [Inject(ContextKeys.CONTEXT_VIEW)]
+//        public GameObject contextView { get; set; }
 
+        [Inject]
+        public MenuView MenuView { get; set; }
 
-			//2. NOW, PROGRAMMATICALLY ADD ANY GO'S WE DIDN'T MANUALLY ADD TO HIERARCHY ALREADY
-			//			WHICH WILL BE BOUND TO MEDIATORS BY CONTEXT TOO
-			//GameObject input_gameobject = new GameObject ("InputUIGO");
-			//input_gameobject.transform.parent = contextView.transform;
-			//input_gameobject.AddComponent<UserInputUI>();
+        public override void Execute()
+        {
+            Debug.Log("Start command");
 
-			Debug.Log ("StartCommand.execute()");
-
-
-		}
+            GameObject menuViewGameObject = new GameObject();
+            menuViewGameObject.name = "MenuView";
+            menuViewGameObject.AddComponent<MenuView>();
+            menuViewGameObject.transform.parent = contextView.transform;
+        }
 		
 		// PRIVATE
 		

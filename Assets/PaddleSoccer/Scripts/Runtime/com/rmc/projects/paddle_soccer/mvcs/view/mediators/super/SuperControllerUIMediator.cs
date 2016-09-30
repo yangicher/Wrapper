@@ -36,7 +36,6 @@ using com.rmc.projects.paddle_soccer.mvcs.model;
 using com.rmc.projects.paddle_soccer.mvcs.view.ui.super;
 
 
-
 //--------------------------------------
 //  Namespace
 //--------------------------------------
