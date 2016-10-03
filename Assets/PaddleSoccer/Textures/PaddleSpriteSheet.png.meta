@@ -1,6 +1,25 @@
 fileFormatVersion: 2
 guid: dd7eefd5fa63a47138cecc57be521087
 TextureImporter:
+  fileIDToRecycleName:
+    21300000: PaddleBlue_01
+    21300002: PaddleBlue_02
+    21300004: PaddleBlue_03
+    21300006: PaddleBlue_04
+    21300008: PaddleBlue_05
+    21300010: PaddleBlue_06
+    21300012: PaddleBlue_07
+    21300014: PaddleBlue_08
+    21300016: PaddleRed_01
+    21300018: PaddleRed_02
+    21300020: PaddleRed_03
+    21300022: PaddleRed_04
+    21300024: PaddleRed_05
+    21300026: PaddleRed_06
+    21300028: PaddleRed_07
+    21300030: PaddleRed_08
+    21300032: 59179_92
+    21300034: 59179_93
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -14,11 +33,14 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 1024
@@ -29,19 +51,25 @@ TextureImporter:
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
+  rGBM: 0
   compressionQuality: 50
+  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 60
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: PaddleBlue_01
+    - serializedVersion: 2
+      name: PaddleBlue_01
       rect:
         serializedVersion: 2
         x: 9
@@ -49,8 +77,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleBlue_02
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleBlue_02
       rect:
         serializedVersion: 2
         x: 9
@@ -58,8 +90,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleBlue_03
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleBlue_03
       rect:
         serializedVersion: 2
         x: 9
@@ -67,8 +103,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleBlue_04
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleBlue_04
       rect:
         serializedVersion: 2
         x: 9
@@ -76,8 +116,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleBlue_05
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleBlue_05
       rect:
         serializedVersion: 2
         x: 9
@@ -85,8 +129,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleBlue_06
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleBlue_06
       rect:
         serializedVersion: 2
         x: 9
@@ -94,8 +142,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleBlue_07
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleBlue_07
       rect:
         serializedVersion: 2
         x: 9
@@ -103,8 +155,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleBlue_08
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleBlue_08
       rect:
         serializedVersion: 2
         x: 9
@@ -112,8 +168,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_01
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_01
       rect:
         serializedVersion: 2
         x: 8
@@ -121,8 +181,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_02
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_02
       rect:
         serializedVersion: 2
         x: 8
@@ -130,8 +194,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_03
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_03
       rect:
         serializedVersion: 2
         x: 8
@@ -139,8 +207,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_04
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_04
       rect:
         serializedVersion: 2
         x: 8
@@ -148,8 +220,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_05
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_05
       rect:
         serializedVersion: 2
         x: 8
@@ -157,8 +233,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_06
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_06
       rect:
         serializedVersion: 2
         x: 8
@@ -166,8 +246,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_07
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_07
       rect:
         serializedVersion: 2
         x: 8
@@ -175,8 +259,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: PaddleRed_08
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: PaddleRed_08
       rect:
         serializedVersion: 2
         x: 8
@@ -184,8 +272,12 @@ TextureImporter:
         width: 74
         height: 20
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: 59179_92
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 59179_92
       rect:
         serializedVersion: 2
         x: 136
@@ -193,8 +285,12 @@ TextureImporter:
         width: 2
         height: 2
       alignment: 0
-      pivot: {x: .5, y: .5}
-    - name: 59179_93
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: 59179_93
       rect:
         serializedVersion: 2
         x: 152
@@ -202,6 +298,12 @@ TextureImporter:
         width: 2
         height: 2
       alignment: 0
-      pivot: {x: .5, y: .5}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
   spritePackingTag: 
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 

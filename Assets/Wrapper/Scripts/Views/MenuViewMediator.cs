@@ -1,5 +1,5 @@
-﻿using strange.extensions.mediation.impl;
-using UnityEngine;
+﻿using Assets.Framework.Services;
+using strange.extensions.mediation.impl;
 
 namespace Assets.Wrapper.Scripts.Views
 {
@@ -8,11 +8,12 @@ namespace Assets.Wrapper.Scripts.Views
         [Inject]
         public MenuView View { get; set; }
 
+        [Inject]
+        public INavigationService NavigationService { get; set; }
 
         public override void OnRegister()
         {
             View.StartClick.AddListener(OnStartClickHandler);
-            View.Initialize();
         }
 
         public override void OnRemove()
@@ -22,11 +23,8 @@ namespace Assets.Wrapper.Scripts.Views
 
         private void OnStartClickHandler()
         {
-            View.RemoveView();
-
-            //TODO: 
-            var menuViewGameObject = GameObject.Instantiate(Resources.Load<GameView>("GameView"));
-            menuViewGameObject.transform.parent = contextView.transform;
+            IScreen screen = NavigationService.GetScreen<GameView>();
+            NavigationService.Navigate(screen);
         }
     }
 }

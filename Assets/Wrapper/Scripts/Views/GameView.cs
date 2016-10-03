@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using strange.extensions.mediation.impl;
+﻿using Assets.Framework.Services;
+using UnityEngine;
 
 namespace Assets.Wrapper.Scripts.Views
 {
-    public class GameView : View
+    public class GameView : ScreenBase
     {
         [SerializeField]
         private float _difficult = 0.05f;
@@ -115,6 +115,11 @@ namespace Assets.Wrapper.Scripts.Views
 
             _mainPolygonTransform = _mainPolygon.gameObject.transform;
             _subPolygonTransform = _subPolygon.gameObject.transform;
+        }
+
+        public override string GetTitle()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

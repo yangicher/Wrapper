@@ -1,4 +1,5 @@
-﻿using strange.extensions.command.api;
+﻿using Assets.Framework.Services;
+using strange.extensions.command.api;
 using strange.extensions.command.impl;
 using strange.extensions.context.impl;
 using Assets.Wrapper.Scripts.Controller;
@@ -37,6 +38,8 @@ namespace Assets.Wrapper.Scripts
 
             // MODEL
             injectionBinder.Bind<IGameModel>().To<GameModel>().ToSingleton();
+
+            injectionBinder.Bind<INavigationService>().To<NavigationService>().ToSingleton();
 
             // VIEW
             mediationBinder.Bind<MenuView>().To<MenuViewMediator>();

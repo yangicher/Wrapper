@@ -1,28 +1,30 @@
 ﻿using System;
-using strange.extensions.mediation.impl;
+using Assets.Framework.Services;
 using strange.extensions.signal.impl;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Wrapper.Scripts.Views
 {
-    public class MenuView : View
+    public class MenuView : ScreenBase
     {
         [SerializeField]
         private Button _startButton;
 
         public Signal StartClick = new Signal();
 
-        public void Initialize()
+        public override void OnLoad(Action onComplete = null)
         {
-            Debug.Log("init menu");
+            base.OnLoad(onComplete);
 
             _startButton.onClick.AddListener(OnStartClickHandler);
         }
 
-        public void RemoveView()
+        public override void OnUnload(Action onComplete = null)
         {
-            Destroy(gameObject);
+            base.OnUnload(onComplete);
+
+            _startButton.onClick.RemoveListener(OnStartClickHandler);
         }
 
         private void OnStartClickHandler()
@@ -30,6 +32,11 @@ namespace Assets.Wrapper.Scripts.Views
             _startButton.onClick.RemoveListener(OnStartClickHandler);
 
             StartClick.Dispatch();
+        }
+
+        public override string GetTitle()
+        {
+            throw new NotImplementedException();
         }
     }
 }
