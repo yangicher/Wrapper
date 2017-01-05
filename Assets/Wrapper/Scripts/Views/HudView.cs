@@ -7,14 +7,14 @@ namespace Assets.Wrapper.Scripts.Views
     public class HudView : View
     {
         [SerializeField]
-        private Button _startButton;
+        private Button _pauseButton;
 
         [SerializeField]
         private Text _scoreText;
 
-        public Button StartButton
+        public Button PauseButton
         {
-            get { return _startButton; }
+            get { return _pauseButton; }
         }
 
         public void SetScore(int score)
@@ -24,7 +24,7 @@ namespace Assets.Wrapper.Scripts.Views
 
         public void UpdateScore()
         {
-            _scoreText.text = (int.Parse(_scoreText.text) + 1).ToString();
+            //_scoreText.text = (int.Parse(_scoreText.text) + 1).ToString();
         }
     }
 }

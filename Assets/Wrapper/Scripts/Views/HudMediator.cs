@@ -1,4 +1,5 @@
-﻿using Assets.Wrapper.Scripts.Controller;
+﻿using Assets.Framework.Services;
+using Assets.Wrapper.Scripts.Controller;
 using strange.extensions.mediation.impl;
 
 namespace Assets.Wrapper.Scripts.Views
@@ -7,6 +8,9 @@ namespace Assets.Wrapper.Scripts.Views
     {
         [Inject]
         public HudView View { get; set; }
+
+        [Inject]
+        public INavigationService NavigationService { get; set; }
 
         [Inject]
         public CommonSignal.StartGameSignal StartGameSignal { get; set; }
@@ -19,7 +23,7 @@ namespace Assets.Wrapper.Scripts.Views
 
         public override void OnRegister()
         {
-            View.StartButton.onClick.AddListener(OnStartButtonClickHandler);
+            View.PauseButton.onClick.AddListener(OnPauseButtonClickHandler);
 
             StartGameSignal.AddListener(OnStartGameHadler);
             StopGameSignal.AddListener(OnStopGameHadler);
@@ -33,28 +37,32 @@ namespace Assets.Wrapper.Scripts.Views
 
         public override void OnRemove()
         {
-            View.StartButton.onClick.RemoveListener(OnStartButtonClickHandler);
+            View.PauseButton.onClick.RemoveListener(OnPauseButtonClickHandler);
 
             StartGameSignal.RemoveListener(OnStartGameHadler);
             StopGameSignal.RemoveListener(OnStopGameHadler);
         }
 
-        private void OnStartButtonClickHandler()
+        private void OnPauseButtonClickHandler()
         {
-            View.StartButton.onClick.RemoveListener(OnStartButtonClickHandler);
-            StartGameSignal.Dispatch();
+            View.PauseButton.onClick.RemoveListener(OnPauseButtonClickHandler);
+            
+            StopGameSignal.Dispatch();
+
+            IScreen screen = NavigationService.GetScreen<MenuView>();
+            NavigationService.Navigate(screen);
         }
 
         private void OnStartGameHadler()
         {
             View.SetScore(0);
-            View.StartButton.interactable = true;
+            View.PauseButton.interactable = false;
         }
 
         private void OnStopGameHadler()
         {
-            View.StartButton.onClick.AddListener(OnStartButtonClickHandler);
-            View.StartButton.interactable = false;
+            View.PauseButton.onClick.AddListener(OnPauseButtonClickHandler);
+            View.PauseButton.interactable = true;
         }
     }
 }
